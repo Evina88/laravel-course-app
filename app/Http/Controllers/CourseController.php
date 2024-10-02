@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Course;
 use Illuminate\Http\Request;
 
-class CourseControlller extends Controller
+class CourseController extends Controller
 {
     public function index()
     {
         // list all
+        $courses = Course::all();
+        return view('course.index', compact('courses'));
     }
 
     public function create()
