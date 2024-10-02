@@ -17,11 +17,15 @@ class CourseController extends Controller
     public function create()
     {
         // Routing to page/view which will hold the create form
+        return view('course.create');
     }
 
     public function store(Request $request)
     {
         // this would create the entry for the course
+        // skipping validation
+        Course::create($request->all());
+        return redirect()->route('course.index');
     }
 
     public function show($id)
